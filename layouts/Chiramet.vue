@@ -1,41 +1,52 @@
 <!-- App.vue -->
 <template>
  <v-app>
-  <v-card
-    class="mx-auto"
-    height="400"
-    width="256"
-  >
-    <v-navigation-drawer
-      class="deep-purple accent-4"
+   <div>
+  <v-app-bar
+      color="deep-purple accent-4"
+      dense
       dark
-      permanent
     >
-      <v-list>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <v-toolbar-title>Page title</v-toolbar-title>
 
-      <template v-slot:append>
-        <div class="pa-2">
-          <v-btn block>Logout</v-btn>
-        </div>
-      </template>
-    </v-navigation-drawer>
-  </v-card>
-  <v-app-bar app>
-  </v-app-bar>
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-menu
+        left
+        bottom
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="n in 5"
+            :key="n"
+            @click="() => {}"
+          >
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+  </div>
   <v-main>
     <v-content>
       <nuxt />
@@ -48,41 +59,7 @@
 </v-app>
 </template>
 
-<template>
-  <v-card
-    class="mx-auto"
-    height="400"
-    width="256"
-  >
-    <v-navigation-drawer
-      class="deep-purple accent-4"
-      dark
-      permanent
-    >
-      <v-list>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-
-      <template v-slot:append>
-        <div class="pa-2">
-          <v-btn block>Logout</v-btn>
-        </div>
-      </template>
-    </v-navigation-drawer>
-  </v-card>
-</template>
 
 <script>
   export default {

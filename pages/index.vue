@@ -1,13 +1,7 @@
 <template>
-  <div>
-    <h1>CHIRAMET  {{name}}  </h1>
+<v-container grid-lost-xs>
+  <div>  
+    <h1>jiramat</h1>
   </div>
+  </v-container>
 </template>
-
-<script>
-export default {
-  data:() => ({
-     name:"chaiyaphum008"
- })
-}
-</script>
